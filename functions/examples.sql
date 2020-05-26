@@ -19,5 +19,23 @@ BEGIN
   SELECT vString;
 END;
 /
-
 DELIMITER ;
+
+
+SET SESSION sql_mode=ORACLE;
+DELIMITER /
+CREATE OR REPLACE PROCEDURE p1(a OUT INT) IS
+BEGIN
+   a := 10;
+END;
+/
+DELIMITER ;
+
+SET @a=2;
+EXECUTE IMMEDIATE 'CALL p1(?)' USING @a;
+SELECT @a;
++------+
+| @a   |
++------+
+|   10 |
++------+

@@ -1,0 +1,10 @@
+-- Sintaxe issues related to Oracle compatibility
+Parameter variables in functions does not accept "IN" or "INOT" declaration
+1. example
+p_delimiter IN VARCHAR2
+2. example (it doesnt work that way)
+p_delimiter IN VARCHAR2 := ';'
+p_delimiter IN VARCHAR2 DEFAULT ';'
+
+---- no REGEXP_COUNT
+---- no Oracle instr compatible
